@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn-icons-png.flaticon.com/512/4804/4804275.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <div class="search">
+        <input
+          type="text"
+          placeholder="Nhập tên thành phố..."
+          spellcheck="false"
+        />
+        <button>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/482/482631.png"
+            alt="search"
+          />
+        </button>
+      </div>
+      <div class="loading"></div>
+      <div class="weather">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/4804/4804275.png"
+          class="weather-icon"
+          alt="weather"
+        />
+        <h1 class="temp">--°C</h1>
+        <h2 class="city">Chưa có dữ liệu</h2>
+        <p class="description">Vui lòng nhập thành phố</p>
+
+        <div class="details">
+          <div class="col">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/727/727790.png"
+              alt="humidity"
+            />
+            <div>
+              <p class="humidity">--%</p>
+              <p>Độ ẩm</p>
+            </div>
+          </div>
+          <div class="col">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/483/483575.png"
+              alt="wind"
+            />
+            <div>
+              <p class="wind">-- km/h</p>
+              <p>Tốc độ gió</p>
+            </div>
+          </div>
+        </div>
+        <footer>
+          <p>
+            © <span id="year"></span> Created by
+            <strong>Nguyen Van Tien</strong>
+          </p>
+          <p>Data by OpenWeatherMap</p>
+        </footer>
+      </div>
+    </div>
+    <script src="fetch.js"></script>
+  </body>
+</html>
