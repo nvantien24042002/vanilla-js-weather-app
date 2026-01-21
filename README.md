@@ -1,4 +1,4 @@
-# 🌤️ Modern Weather App - Glassmorphism Design
+# 🌤️ Modern Weather App
 
 A professional, responsive Weather Application built with **Vanilla JavaScript** and **OpenWeatherMap API**. This project features a modern glassmorphism UI and dynamic functionalities.
 
@@ -17,14 +17,6 @@ A professional, responsive Weather Application built with **Vanilla JavaScript**
 - **CSS3:** Custom properties, Flexbox, Glassmorphism, and Keyframe Animations.
 - **JavaScript (ES6+):** Fetch API, Async/Await, and Geolocation API.
 - **API:** [OpenWeatherMap](https://openweathermap.org/).
-
-## 📸 Demo Preview
-
-| Day Mode                                                             | Night Mode                                                               |
-| :------------------------------------------------------------------- | :----------------------------------------------------------------------- |
-| ![Day Preview](https://via.placeholder.com/300x500?text=Day+Mode+UI) | ![Night Preview](https://via.placeholder.com/300x500?text=Night+Mode+UI) |
-
-_(Note: Don't forget to replace these with your actual hosted screenshots!)_
 
 ## 🚀 Getting Started
 
