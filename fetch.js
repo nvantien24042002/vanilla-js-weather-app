@@ -22,7 +22,6 @@ const UI = {
  * 1. HÀM CẬP NHẬT GIAO DIỆN
  */
 function updateUI(data) {
-  // Hiệu ứng Fade-in nội dung
   UI.weatherBox.style.opacity = "1";
   UI.weatherBox.style.transform = "translateY(0)";
 
@@ -48,10 +47,6 @@ function updateUI(data) {
   UI.weatherIcon.src = newSrc;
   if (UI.favicon) UI.favicon.href = newSrc;
 }
-
-/**
- * 2. HÀM GỌI API CHÍNH
- */
 async function fetchWeatherData(params) {
   const startTime = Date.now();
 
@@ -79,8 +74,6 @@ async function fetchWeatherData(params) {
     }
 
     const data = await response.json();
-
-    // Đảm bảo loading xoay ít nhất một khoảng thời gian cho mượt
     const duration = Date.now() - startTime;
     const delay = Math.max(0, CONFIG.MIN_LOADING_TIME - duration);
 
@@ -97,19 +90,13 @@ async function fetchWeatherData(params) {
   }
 }
 
-/**
- * 3. HÀM TIỆN ÍCH
- */
+
 function setBackgroundTheme() {
   const hour = new Date().getHours();
   document.body.className = hour >= 6 && hour < 18 ? "day" : "night";
 }
 
-/**
- * 4. SỰ KIỆN & KHỞI CHẠY
- */
 
-// Tìm kiếm theo tên thành phố
 const handleSearch = () => {
   const city = UI.searchInput.value.trim();
   if (city) fetchWeatherData({ q: city });
@@ -120,7 +107,6 @@ UI.searchInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") handleSearch();
 });
 
-// Tự động chạy khi mở trang
 window.addEventListener("load", () => {
   setBackgroundTheme();
 
@@ -133,13 +119,11 @@ window.addEventListener("load", () => {
         });
       },
       () => {
-        // Nếu từ chối vị trí, mặc định lấy Hà Nội
-        fetchWeatherData({ q: "Hanoi" });
+        fetchWeatherData({ q: "Hue" });
       },
     );
   } else {
-    fetchWeatherData({ q: "Hanoi" });
+    fetchWeatherData({ q: "Hue" });
   }
 });
-// Tự động cập nhật năm cho Copyright
 document.getElementById("year").innerText = new Date().getFullYear();
