@@ -36,7 +36,7 @@ function updateUI(data) {
   // Bản đồ Icon thời tiết
   const status = data.weather[0].main;
   const icons = {
-    Clouds: "https://cdn-icons-png.flaticon.com/512/4804/4804275.png",
+    Clouds: "D:/xampp/htdocs/BE/php/vanilla-js-weather-app/img/cloud.png",
     Clear: "https://cdn-icons-png.flaticon.com/512/4814/4814268.png",
     Rain: "https://cdn-icons-png.flaticon.com/512/1146/1146858.png",
     Drizzle: "https://cdn-icons-png.flaticon.com/512/3076/3076129.png",
