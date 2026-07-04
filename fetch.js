@@ -6,7 +6,7 @@ const CONFIG = {
   BASE_URL: "https://api.openweathermap.org/data/2.5/weather",
   UNITS: "metric",
   LANG: "vi",
-  MIN_LOADING_TIME: 600, // Thời gian xoay loading tối thiểu (ms)
+  MIN_LOADING_TIME: 400, // Thời gian xoay loading tối thiểu (ms)
 };
 
 const UI = {
@@ -32,10 +32,9 @@ function updateUI(data) {
   document.querySelector(".description").innerHTML =
     data.weather[0].description;
 
-  // Bản đồ Icon thời tiết
   const status = data.weather[0].main;
   const icons = {
-    Clouds: "D:/xampp/htdocs/BE/php/vanilla-js-weather-app/img/cloud.png",
+    Clouds: "./img/cloud.png",
     Clear: "https://cdn-icons-png.flaticon.com/512/4814/4814268.png",
     Rain: "https://cdn-icons-png.flaticon.com/512/1146/1146858.png",
     Drizzle: "https://cdn-icons-png.flaticon.com/512/3076/3076129.png",
@@ -50,7 +49,7 @@ function updateUI(data) {
 async function fetchWeatherData(params) {
   const startTime = Date.now();
 
-  // Trạng thái Loading
+  // Status Loading
   UI.weatherBox.style.opacity = "0.3";
   UI.weatherBox.style.transform = "translateY(10px)";
   UI.loadingSpinner.style.display = "block";
