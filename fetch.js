@@ -19,6 +19,41 @@ const UI = {
 };
 
 /**
+ * CACHE CONFIGURATION
+ */
+const CACHE_KEY = "weather_cache";
+const CACHE_TTL = 10 * 60 * 1000; // 10 minutes
+
+function getCache() {
+  try {
+    const cached = localStorage.getItem(CACHE_KEY);
+    if (!cached) return null;
+
+    const { data, timestamp } = JSON.parse(cached);
+    const isExpired = Date.now() - timestamp > CACHE_TTL;
+
+    if (isExpired) {
+      localStorage.removeItem(CACHE_KEY);
+      return null;
+    }
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+function setCache(data) {
+  try {
+    localStorage.setItem(
+      CACHE_KEY,
+      JSON.stringify({ data, timestamp: Date.now() })
+    );
+  } catch {
+    console.warn("Cache save failed");
+  }
+}
+
+/**
  * 1. HÀM CẬP NHẬT GIAO DIỆN
  */
 function updateUI(data) {
@@ -35,11 +70,11 @@ function updateUI(data) {
   const status = data.weather[0].main;
   const icons = {
     Clouds: "./img/cloud.png",
-    Clear: "https://cdn-icons-png.flaticon.com/512/4814/4814268.png",
-    Rain: "https://cdn-icons-png.flaticon.com/512/1146/1146858.png",
-    Drizzle: "https://cdn-icons-png.flaticon.com/512/3076/3076129.png",
-    Mist: "https://cdn-icons-png.flaticon.com/512/4005/4005901.png",
-    Snow: "https://cdn-icons-png.flaticon.com/512/2315/2315309.png",
+    Clear: "./img/clear.png",
+    Rain: "./img/rain.png",
+    Drizzle: "./img/drizzle.png",
+    Mist: "./img/mist.png",
+    Snow: "./img/snow.png",
   };
 
   const newSrc = icons[status] || icons["Clouds"];
@@ -47,6 +82,14 @@ function updateUI(data) {
   if (UI.favicon) UI.favicon.href = newSrc;
 }
 async function fetchWeatherData(params) {
+  // Check cache first
+  const cachedData = getCache();
+  if (cachedData) {
+    console.log("Using cached data");
+    updateUI(cachedData);
+    return;
+  }
+
   const startTime = Date.now();
 
   // Status Loading
@@ -73,6 +116,7 @@ async function fetchWeatherData(params) {
     }
 
     const data = await response.json();
+    setCache(data); // Save to cache
     const duration = Date.now() - startTime;
     const delay = Math.max(0, CONFIG.MIN_LOADING_TIME - duration);
 
