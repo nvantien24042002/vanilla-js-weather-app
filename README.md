@@ -11,6 +11,7 @@ A simple, fast weather application built with **vanilla JavaScript, HTML, and CS
 - **Day/Night Theme** - Dynamic background changes based on time of day
 - **Smart Caching** - Reduces API calls with 10-minute localStorage cache
 - **Local Icons** - All weather icons stored locally (no CDN dependency)
+- **5-Day Forecast** - Displays a short forecast for the next days
 - **Responsive Design** - Works on mobile, tablet, and desktop
 - **No Framework** - Built entirely with vanilla JS (ES6+), HTML5, CSS3
 - **Error Handling** - Clear error messages for failed searches

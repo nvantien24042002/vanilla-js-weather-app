@@ -103,6 +103,59 @@ body {
   font-size: 28px;
   margin-top: -6px;
 }
+
+.forecast {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.forecast h3 {
+  font-size: 18px;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.forecast-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.forecast-item {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  padding: 14px 12px;
+  flex: 1 1 100px;
+  min-width: 90px;
+  color: #fff;
+}
+
+.forecast-item img {
+  width: 38px;
+  margin-bottom: 8px;
+}
+
+.forecast-item .day {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.forecast-item .temp {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.forecast-item .desc {
+  font-size: 12px;
+  opacity: 0.85;
+  margin-top: 6px;
+  text-transform: capitalize;
+}
+
+.forecast-empty {
+  color: rgba(255, 255, 255, 0.8);
+}
 /* Hiệu ứng nền thay đổi theo thời gian */
 body.day {
   background: linear-gradient(135deg, #fceabb, #f8b500);
